@@ -11,7 +11,7 @@ public class DatabaseContextFactory
         _configureDbContext = configureDbContext;
     }
 
-    public DatabaseContext CreateDbCOntext()
+    public DatabaseContext CreateDbContext()
     {
         DbContextOptionsBuilder<DatabaseContext> optionsBuilder = new();
         _configureDbContext(optionsBuilder);
