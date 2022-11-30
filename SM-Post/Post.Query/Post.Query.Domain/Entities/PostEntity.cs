@@ -9,7 +9,7 @@ public class PostEntity
     [Key]
     public Guid PostId { get; set; }
     public string Author { get; set; } = string.Empty;
-    public DateTime DataPosted { get; set; }
+    public DateTime DatePosted { get; set; }
     public string Message { get; set; } = string.Empty;
     public int Likes { get; set; }
     public virtual ICollection<CommentEntity> Comments { get; set; } = null!;
