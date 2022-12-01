@@ -9,20 +9,24 @@ services:
     volumes:
       - "mongodb_data:/data/db"
 
-  mssql:
-    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
-    restart: always
-    ports:
-      - "1433:1433"
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=StrongPassw@rd
-      - MSSQL_PID=Express
-    volumes:
-      - "mssql_data:/data/db"
+  # mssql:
+  #   image: mcr.microsoft.com/mssql/server:2019-latest
+  #   restart: always
+  #   ports:
+  #     - "1433:1433"
+  #   environment:
+  #     - ACCEPT_EULA=Y
+  #     - SA_PASSWORD=StrongPassw@rd
+  #     - MSSQL_PID=Express
+  #     - MSSQL_LCID=1041
+  #     - MSSQL_COLLECTION=Japanese_CI_AS
+  #     - TZ="Asia/Tokyo"
+  #     - MSSQL_AGENT_ENABLED="true"
+  #   volumes:
+  #     - "mssql_data:/data/db"
 
-    depends_on:
-      - mongoDb
+  #   depends_on:
+  #     - mongoDb
 
   zookeeper:
     image: bitnami/zookeeper
@@ -59,6 +63,8 @@ volumes:
   mongodb_data:
     driver: local
   mssql_data:
+    driver: local
+  postgres-data:
     driver: local
 
 networks:
