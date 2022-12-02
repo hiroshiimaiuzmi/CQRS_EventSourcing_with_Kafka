@@ -23,7 +23,7 @@ public class EventStore : IEventStore
     {
         var eventStream = await _eventStoreRepository.FindByAggregateId(aggregateId);
 
-        if (eventStream is null || eventStream.Any())
+        if (eventStream is null || !eventStream.Any())
             throw new AggregateNotFoundException("Incorrect post Id provided!");
 
         return eventStream.OrderBy(x => x.Version).Select(x => x.EventData).ToList();
