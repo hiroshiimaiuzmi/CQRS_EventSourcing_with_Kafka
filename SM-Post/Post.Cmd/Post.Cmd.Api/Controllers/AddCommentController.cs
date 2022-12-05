@@ -58,8 +58,6 @@ namespace Post.Cmd.Api.Controllers
                     Message = SAFE_ERROR_MESSAGE
                 });
             }
-
         }
-
     }
 }
